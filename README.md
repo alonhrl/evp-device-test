@@ -23,12 +23,6 @@ https://staging.ci.midocloud.net/
 sudo apt install docker.io azure-cli xclip jq 
 ```
 
-### Create directory
-
-```
-mkdir mido && cd mido
-```
-
 ### Clone mido nuttx-external repo and make
 
 ```
@@ -50,10 +44,18 @@ xclip -i cert.pem
 	* Paste your key in the field below (middle click)
 	* Save
 
+### idk
 
+``` 
+cd ../../linux
 curl -o ../test/tests/root-ca.pem "https://staging.ci.midocloud.net/showmecacert"
 az login
+```
+* Login to your azure account
+```
 source <(az acr login -n midokura --expose-token |  jq -r '. | "DOCKER_USER=00000000-0000-0000-0000-000000000000; DOCKER_PASSWORD=\"" + .accessToken + "\"; DOCKER_REGISTRY=" + .loginServer + "; export DOCKER_USER; export DOCKER_PASSWORD; export DOCKER_REGISTRY"')
 env | grep DOCKER_
 ./run2.sh mqtt-staging.ci.midocloud.net 8883 ../test/tests/{root-ca,cert,key}.pem
+```
 
+### 
