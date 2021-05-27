@@ -11,7 +11,7 @@ endpoint: POST /api/evp/v1/module
 }
 
 
-deployment:
+Deployment:
 
 POST /api/evp/v1/deployment
 {

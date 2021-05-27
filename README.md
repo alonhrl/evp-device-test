@@ -6,7 +6,9 @@
 * Account on the Staging hub
 
 
-## Create Device on hub
+### Create Device on hub
+
+* Go to:
 
 https://staging.ci.midocloud.net/
 
@@ -15,32 +17,37 @@ https://staging.ci.midocloud.net/
 * Click on your device to see it's settings
 
 
-# Install prerequisites
+### Install prerequisites
 
+```
 sudo apt install docker.io azure-cli xclip jq 
+```
 
+### Create directory
 
-# Create directory
-
+```
 mkdir mido && cd mido
+```
 
+### Clone mido nuttx-external repo and make
 
-# Clone mido nuttx-external repo and make
-
+```
 git clone https://github.com/midokura/nuttx-external.git
 cd nuttx-external/evp_agent/linux
 make
+```
 
+### Generate private key
 
-# Generate private key
-
+```
 cd ../test/tests
 ./simplest-cert.sh
 xclip -i cert.pem
+```
 * In your browser:
 	* 'Manage Credentials'
 	* Credentials type: X.509 Certificate
-	* Paste your key in the field below
+	* Paste your key in the field below (middle click)
 	* Save
 
 
@@ -50,5 +57,3 @@ source <(az acr login -n midokura --expose-token |  jq -r '. | "DOCKER_USER=0000
 env | grep DOCKER_
 ./run2.sh mqtt-staging.ci.midocloud.net 8883 ../test/tests/{root-ca,cert,key}.pem
 
-
-060f8f00-bef5-11eb-a93c-e79f75202e04
