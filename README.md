@@ -1,11 +1,12 @@
+# Procedure
 
-# Ask Agustin for the following:
+## Ask Agustin for the following:
 
 * Access to mido azure tenant
 * Account on the Staging hub
 
 
-# Create Device on hub
+## Create Device on hub
 
 https://staging.ci.midocloud.net/
 
