@@ -64,4 +64,16 @@ env | grep DOCKER_
 ### EVP Rest Api
 
 In your browser:
+* In the thingsboard UI, copy your device ID
+* Paste it in 'entity_type_ids.txt'
+
+Input your credentials in 'staging_credentials'
+
+Open a new terminal tab to the root of this repo:
+
+```
+. quick-get-token.sh
+```
+
+Cope the token
 
