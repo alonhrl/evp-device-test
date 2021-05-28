@@ -79,4 +79,7 @@ Cope the token
 
 In your browser:
 * Open a new tab to https://staging.ci.midocloud.net/swagger-ui.html#
+* On the top right, click on 'Authorize'
+* In the 'value' field enter: Bearer <token>
+
 
