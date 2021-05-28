@@ -23,10 +23,15 @@ sudo apt install docker.io azure-cli xclip jq
 ```
 
 
-### Clone mido nuttx-external repo and make
+### Clone mido nuttx-external repo
 
 ```
 git clone https://github.com/midokura/nuttx-external.git
+```
+
+### Build EVP Agent for linux
+
+```
 cd nuttx-external/evp_agent/linux
 make build_with_docker
 ```
