@@ -3,7 +3,7 @@ Module:
 endpoint: POST /api/evp/v1/module
 
 {
-  "name": "rpc-test",
+  "name": "<insert module name>",
   "type": "linux",
   "resourceUrl": "midokura.azurecr.io/evp-module-rpc:latest",
   "entryPoint": "main",
@@ -13,7 +13,8 @@ endpoint: POST /api/evp/v1/module
 
 Deployment:
 
-POST /api/evp/v1/deployment
+endpoint: POST /api/evp/v1/deployment
+
 {
   "instanceSpecs": {"config-echo-instance": {"version": 1, "moduleId": "28a97df0-befa-11eb-9d30-777f4696f3fe", "entryPoint": "main", "publish": {}, "subscribe": {}}},
   "targetCondition": {"id": "060f8f00-bef5-11eb-a93c-e79f75202e04"},
@@ -21,3 +22,14 @@ POST /api/evp/v1/deployment
   "publishTopics": {},
   "subscribeTopics": {}
 }
+
+
+Device test:
+
+endpoint: POST /api/evp/v1/devices/{deviceId}/module_instances/{instanceName}/commands
+
+deviceId: <insert device id>
+
+instanceName: config-echo-instance
+
+payload: {"method": "echo", "params": "test"}

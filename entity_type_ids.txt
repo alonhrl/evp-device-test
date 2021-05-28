@@ -1,12 +1,12 @@
 
 device:
-060f8f00-bef5-11eb-a93c-e79f75202e04
+<device entity type id>
 
 
 module:
-28a97df0-befa-11eb-9d30-777f4696f3fe
+<module entity type id>
 
 
 deployment:
-1045a300-befb-11eb-9d30-777f4696f3fe
+<deployment entity type id>
 
