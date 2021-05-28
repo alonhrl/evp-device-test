@@ -4,14 +4,13 @@
 
 * Access to mido azure tenant
 * Account on the Staging hub
+* Access to the mido github
 
 
 ### Create Device on hub
 
-* Go to:
-
-https://staging.ci.midocloud.net/
-
+In your browser:
+* Go to: https://staging.ci.midocloud.net/
 * Click '+' on bottom right corner --> add new Device
 * Name = whatevs, Device type = linux, rest doesn't matter
 * Click on your device to see it's settings
@@ -23,13 +22,15 @@ https://staging.ci.midocloud.net/
 sudo apt install docker.io azure-cli xclip jq 
 ```
 
+
 ### Clone mido nuttx-external repo and make
 
 ```
 git clone https://github.com/midokura/nuttx-external.git
 cd nuttx-external/evp_agent/linux
-make
+make build_with_docker
 ```
+
 
 ### Generate private key
 
@@ -38,24 +39,29 @@ cd ../test/tests
 ./simplest-cert.sh
 xclip -i cert.pem
 ```
-* In your browser:
-	* 'Manage Credentials'
-	* Credentials type: X.509 Certificate
-	* Paste your key in the field below (middle click)
-	* Save
+In your browser:
+* 'Manage Credentials'
+* Credentials type: X.509 Certificate
+* Paste your key in the field below (middle click)
+* Save
 
-### idk
+
+### Run EVP Agent
 
 ``` 
 cd ../../linux
 curl -o ../test/tests/root-ca.pem "https://staging.ci.midocloud.net/showmecacert"
 az login
 ```
-* Login to your azure account
+Login to your azure account
 ```
 source <(az acr login -n midokura --expose-token |  jq -r '. | "DOCKER_USER=00000000-0000-0000-0000-000000000000; DOCKER_PASSWORD=\"" + .accessToken + "\"; DOCKER_REGISTRY=" + .loginServer + "; export DOCKER_USER; export DOCKER_PASSWORD; export DOCKER_REGISTRY"')
 env | grep DOCKER_
 ./run2.sh mqtt-staging.ci.midocloud.net 8883 ../test/tests/{root-ca,cert,key}.pem
 ```
 
-### 
+
+### EVP Rest Api
+
+In your browser:
+
