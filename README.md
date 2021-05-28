@@ -69,11 +69,14 @@ In your browser:
 
 Input your credentials in 'staging_credentials'
 
-Open a new terminal tab to the root of this repo:
+Open a new terminal tab to the root of this repo and run:
 
 ```
 . quick-get-token.sh
 ```
 
 Cope the token
+
+In your browser:
+* Open a new tab to https://staging.ci.midocloud.net/swagger-ui.html#
 
